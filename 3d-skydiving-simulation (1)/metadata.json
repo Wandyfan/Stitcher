@@ -1,0 +1,6 @@
+{
+  "name": "3D Skydiving Simulation",
+  "description": "A high-performance 3D cinematic skydiving simulation over Munich, landing at Marienplatz, utilizing CesiumJS.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

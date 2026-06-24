@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Nunito", sans-serif;
+}
+
+/* Base custom classes */
+body {
+  font-family: var(--font-sans);
+}
+
+/* Cesium hidden credit style and UI overrides */
+.cesium-viewer-bottom {
+  display: none !important; /* Clean visual display */
+}
+
+.cesium-viewer {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Custom UI scanline effect or glowing text details */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+}
+
+/* Frosted glass theme aesthetics */
+.frosted-glass {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.frosted-glass-heavy {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.65);
+}
+
+.hud-panel {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  padding: 24px 12px;
+  border-radius: 32px;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.gauge {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  color: #ffb000;
+  text-align: center;
+}
+
+.gauge-value {
+  position: absolute;
+  top: 38px;
+  width: 100%;
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffc133;
+  text-shadow: 0 0 15px rgba(255, 176, 0, 0.6);
+  letter-spacing: -1px;
+}
+
+.gauge-label {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 210, 120, 0.8);
+}
+
+.gauge-unit {
+  position: absolute;
+  top: 62px;
+  width: 100%;
+  font-size: 9px;
+  font-weight: 600;
+  opacity: 0.6;
+}
+
+.glowing-button {
+  box-shadow: 0 0 20px rgba(255, 176, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.glowing-button:hover {
+  box-shadow: 0 0 30px rgba(255, 176, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+/* Crosshair and HUD system overlays */
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.crosshair::before, .crosshair::after {
+  content: '';
+  position: absolute;
+  background: rgba(255,255,255,0.5);
+}
+
+.crosshair::before {
+  width: 20px;
+  height: 1px;
+}
+
+.crosshair::after {
+  width: 1px;
+  height: 20px;
+}
+
+.target-marker {
+  position: absolute;
+  bottom: 15%;
+  left: 55%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.target-box {
+  width: 120px;
+  height: 120px;
+  border: 2px dashed #00ffcc;
+  position: relative;
+  opacity: 0.5;
+}
+
+.target-label {
+  color: #00ffcc;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-top: 8px;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
